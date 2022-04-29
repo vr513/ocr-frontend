@@ -46,7 +46,6 @@
 .formImageInput {
     content: 'Select some files';
     display: inline-block;
-    background: linear-gradient(top, #f9f9f9, #e3e3e3);
     border-radius: 3px;
     padding: 5px 8px;
     outline: none;
@@ -61,9 +60,6 @@
     border-color: black;
 }
 
-.formImageInput:active::before {
-    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-}
 
 .selectedImage {
     max-height: 40rem;
