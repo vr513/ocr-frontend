@@ -4,7 +4,7 @@ import { baseUrl } from "./_app";
 import styles from '../styles/Convert.module.css'
 
 
-function convert() {
+function Convert() {
   const [text, setText] = useState(null);
   const [fileSrc, setFileSrc] = useState(null);
   const form = useRef(null);
@@ -51,4 +51,4 @@ function convert() {
   </>;
 }
 
-export default convert;
+export default Convert;

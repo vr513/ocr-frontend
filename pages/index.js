@@ -22,7 +22,7 @@ export default function Home() {
   }
   return(
     <p>
-            You will see this page only if pathname !== "/" , <br/>
+            You will see this page only if pathname is null , <br/>
         </p> 
   )
 }
