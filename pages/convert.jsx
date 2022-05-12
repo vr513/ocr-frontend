@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Head from "next/dist/shared/lib/head";
 import { baseUrl } from "./_app";
 import styles from '../styles/Convert.module.css'
-
+import Tesseract from "tesseract.js";
 
 function Convert() {
   const [text, setText] = useState(null);
@@ -13,7 +13,13 @@ function Convert() {
     setFileSrc(URL.createObjectURL(evt.target.files[0]))
     console.log(fileSrc);
   }
-
+  async function getText2(evt) {
+    evt.preventDefault();
+    setText("Please wait while we fetch your result")
+    let res = await Tesseract.recognize(fileSrc, 'eng')
+    console.log(res)
+    setText(res.data.text)
+  }
   async function getText(evt) {
     evt.preventDefault();
     const data = new FormData(form.current)
@@ -30,7 +36,7 @@ function Convert() {
     <div className="container">
       <h2 className={styles.mainHead}>Optical Character Recognition</h2>
       <div className={styles.main}>
-        <form ref={form} onSubmit={getText} className={styles.formMain}>
+        <form ref={form} onSubmit={getText2} className={styles.formMain}>
 
           <div className="form-group">
             <h2 className={styles.formHead} htmlFor="exampleFormControlFile1">Test Image input</h2><br />
